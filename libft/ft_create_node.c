@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   ft_create_node.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: Tessa <tvan-der@student.codam.nl>            +#+                     */
+/*   By: tvan-der <tvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/01/16 16:40:43 by Tessa         #+#    #+#                 */
-/*   Updated: 2021/01/19 16:17:58 by Tessa         ########   odam.nl         */
+/*   Created: 2022/04/14 15:19:27 by tvan-der      #+#    #+#                 */
+/*   Updated: 2022/04/14 15:29:07 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+node *ft_create_node(int data)
 {
-	if (!lst || !new)
-		return ;
-	else if (*lst == NULL)
-		*lst = new;
-	else
-	{
-		ft_lstlast(*lst)->next = new;
-		new->next = NULL;
-	}
+    node *new;
+    
+    new = (node *)malloc(sizeof(node *));
+    if (!new)
+        return (NULL);
+    new->data = data;
+    new->next = NULL;
+    return (new);
 }

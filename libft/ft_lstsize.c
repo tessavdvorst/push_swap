@@ -6,7 +6,7 @@
 /*   By: Tessa <tvan-der@student.codam.nl>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/11 10:28:37 by Tessa         #+#    #+#                 */
-/*   Updated: 2021/09/23 14:08:00 by tvan-der      ########   odam.nl         */
+/*   Updated: 2022/04/14 15:17:21 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	count;
+    int count;
 
-	if (lst == NULL)
-		return (0);
-	count = 0;
-	while (lst != NULL)
-	{
-		count++;
-		lst = lst->next;
-	}
-	return (count);
+    count = 0;
+    while (lst != NULL)
+    {
+        lst = lst->next;
+        count++;   
+    }
+    return (count);
 }

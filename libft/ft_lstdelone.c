@@ -6,7 +6,7 @@
 /*   By: Tessa <tvan-der@student.codam.nl>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/19 16:36:30 by Tessa         #+#    #+#                 */
-/*   Updated: 2021/01/19 17:12:48 by Tessa         ########   odam.nl         */
+/*   Updated: 2022/04/14 15:16:06 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst)
 		return ;
-	del(lst->content);
+	del(lst->data);
 	free(lst);
 }

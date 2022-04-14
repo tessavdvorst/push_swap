@@ -6,38 +6,53 @@
 /*   By: tvan-der <tvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 14:11:28 by tvan-der      #+#    #+#                 */
-/*   Updated: 2022/03/23 17:04:29 by tvan-der      ########   odam.nl         */
+/*   Updated: 2022/04/14 15:30:39 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "unity_fixture.h"
 #include "../incl/push_swap.h"
 
-int check_input(char *str)
+void push_swap(int argc, char **argv)
 {
-    int num;
-    char *conversion;
+    node *head;
     
-    num = ft_atoi(str);
-    conversion = ft_itoa(num);
-    if (ft_strcmp(str, conversion) == 0)
-        return (1);
+    head = create_list(argc, argv);
+    if (check_if_sorted(head))
+        ft_printf("Stack is already sorted\n\n");
     else
-        return (0);       
+    {
+        ft_printf("Stack is not sorted\n\n");
+        if (lstsize(head) <= 5)
+        {    
+            ft_printf("Sorting...\n\n");
+            sort_small_stack(&head);
+        }
+    }
+    ft_printf("\n");
+    print_list(head);
 }
-
-// argc = amount of numbers that need to be sorted
 
 int main(int argc, char **argv)
 {
     int i;
     
-    i = 0;
     if (argc < 2)
         ft_printf("Please enter numbers to be sorted.\n");
-    if (check_input(argv[1]))
-        ft_printf("Success, input is valid\n");
-    else
-        ft_printf("Error, input not valid\n");
+    else 
+    {
+        i = 1;
+        while (i < argc)
+        {
+            if (!check_input(argv[i]))
+            {
+                ft_printf("Error, input not valid\n");
+                exit(0);
+            }
+            i++;
+        }
+    push_swap(argc, argv);
+    }
+    
     return (0);
 }

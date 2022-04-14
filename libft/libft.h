@@ -6,7 +6,7 @@
 /*   By: Tessa <tvan-der@student.codam.nl>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/17 14:04:59 by Tessa         #+#    #+#                 */
-/*   Updated: 2022/03/08 14:12:55 by tvan-der      ########   odam.nl         */
+/*   Updated: 2022/04/14 15:28:50 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,15 @@ typedef struct s_data
 
 typedef struct s_list
 {
-	void			*content;
+	void	*data;
 	struct s_list	*next;
 }t_list;
+
+typedef struct node
+{
+	int		data;
+	struct node	*next;
+}node;
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
@@ -67,11 +73,12 @@ void	ft_putnbr_fd(int n, int fd);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(void *data);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
+node 	*ft_create_node(int data);
+void 	ft_lst_insert_back(node **head, int data);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_printchar(char c, t_data *data);

@@ -6,7 +6,7 @@
 #    By: tvan-der <tvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/08 12:03:47 by tvan-der      #+#    #+#                  #
-#    Updated: 2022/03/14 17:21:22 by tvan-der      ########   odam.nl          #
+#    Updated: 2022/04/14 15:29:46 by tvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,16 +50,19 @@ SRCS	=	ft_strlcpy.c \
 			ft_split.c \
 			ft_lstnew.c \
 			ft_lstadd_front.c \
+			ft_lstiter.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
-			ft_lstadd_back.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
+			ft_create_node.c \
+			ft_lst_insert_back.c \
 			ft_printf.c \
 			ft_printf_char.c \
 			ft_printf_num.c
 
-OBJS	=	$(SRCS:.c=.o)
+DIR_OBJ =	./obj
+OBJS	=	$(addprefix $(DIR_OBJ)/, $(SRCS:.c=.o))
 LIBC	=	ar -rcs
 FLAGS	=	-Wall -Wextra -Werror
 RM		= 	rm -f
@@ -67,11 +70,13 @@ all: $(NAME)
 
 $(NAME):	$(OBJS)
 			${LIBC} $(NAME) $(OBJS)
-.c.o:
-			${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+
+$(DIR_OBJ)/%.o: %.c
+			mkdir -p $(DIR_OBJ)
+			${CC} ${FLAGS} -c $< -o $@
 
 clean:
-			${RM} *.o
+			$(RM) -d -r $(DIR_OBJ)
 
 fclean:		clean
 			${RM} $(NAME)
