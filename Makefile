@@ -6,55 +6,62 @@
 #    By: Tessa <Tessa@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/01/11 14:02:46 by Tessa         #+#    #+#                  #
-#    Updated: 2022/04/13 15:20:33 by tvan-der      ########   odam.nl          #
+#    Updated: 2022/05/09 15:05:28 by tvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-GREEN = 	\033[38;5;2m
-NORMAL = 	\033[38;5;255m
-RED = 		\033[38;5;1m
+GREEN =			\033[38;5;2m
+NORMAL =		\033[38;5;255m
+RED =			\033[38;5;1m
 
-NAME =     	push_swap
-VPATH = 	./src
-DIR_OBJ =	./obj
+NAME_M =		push_swap
+NAME_BONUS =	checker
+VPATH =			./src ./bonus
+DIR_OBJ =		./obj
 
-SRCS = 		push_swap.c \
-			info_init.c \
-			list_test.c \
-			operations.c \
-			sort.c
+SRCS_M =		main.c
 
-BONUS =	
+SRCS =			info_init.c \
+				utils.c \
+				operations.c \
+				pre_sort.c \
+				sort_small.c \
+				sort_big.c
 
-OFILES =    $(addprefix $(DIR_OBJ)/, $(SRCS:.c=.o))
-BFILES =	$(addprefix $(DIR_OBJ)/, $(BONUS:.c=.o))
+BONUS =			checker.c
+
+OFILES =	$(addprefix $(DIR_OBJ)/, $(SRCS:.c=.o) $(SRCS_M:.c=.o))
+BFILES =	$(addprefix $(DIR_OBJ)/, $(SRCS:.c=.o) $(BONUS:.c=.o))
 
 
-HEADER =  	./libft \
+HEADER =	./libft \
 
-CC = 		gcc
-RM = 		rm -f
-CFLAGS = 	-Wall -Wextra -Werror
+CC =		gcc
+RM =		rm -f
+CFLAGS =	-Wall -Wextra -Werror -g
 
 ifdef WITH_BONUS
 OBJS = $(BFILES)
+NAME = $(NAME_BONUS)
 else
 OBJS = $(OFILES)
+NAME = $(NAME_M)
 endif
 
-all:        $(NAME)
+all:		$(NAME)
 
 $(NAME):	$(OBJS) $(HEADER)
 			make -C libft/
-			$(CC) -Llibft -lft -o $(NAME) $(OBJS) $(CFLAGS) 
+			$(CC) $(CFLAGS) -Llibft -lft -o $(NAME) $(OBJS) 
 			@echo "$(GREEN)Successfully compiled!$(NORMAL)"
 
 $(DIR_OBJ)/%.o: %.c
 			@echo "$(GREEN)Compiling:$(NORMAL)"
 			mkdir -p $(DIR_OBJ)
-			$(CC) -Ilibft -c $< -o $@ $(CFLAGS)
+			$(CC) $(CFLAGS) -Ilibft -c $< -o $@
 			
 bonus:
+			rm -f $(SRCS_M:.c=.o)
 			make WITH_BONUS=1 all
 
 clean:
@@ -67,12 +74,12 @@ fclean:		clean
 			@echo "$(RED)Removing libraries...$(NORMAL)"
 			$(RM) libft/libft.a
 			$(RM) libft.a
-			$(RM) $(NAME)
+			$(RM) $(NAME_M) $(NAME_BONUS)
 			@echo "$(GREEN)Successfully removed libraries!$(NORMAL)"
 
-re:        	fclean all
+re:			fclean all
 
-.PHONY: 	all clean fclean re bonus
+.PHONY:		all clean fclean re bonus
 
 
 

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   all_tests.c                                        :+:    :+:            */
+/*   ft_lstfree.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tvan-der <tvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/23 11:46:34 by tvan-der      #+#    #+#                 */
-/*   Updated: 2022/03/23 15:31:54 by tvan-der      ########   odam.nl         */
+/*   Created: 2022/05/02 12:13:49 by tvan-der      #+#    #+#                 */
+/*   Updated: 2022/05/02 15:28:26 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unity_fixture.h"
+#include "libft.h"
 
-static void run_all_tests(void)
+void	ft_lstfree(t_node *head)
 {
-    RUN_TEST_GROUP(PushSwap);
-}
+	t_node	*tmp;
 
-int main(int argc, const char *argv[])
-{
-    return (UnityMain(argc, argv, run_all_tests));
+	while (head != NULL)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
 }

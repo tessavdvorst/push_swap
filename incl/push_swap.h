@@ -6,7 +6,7 @@
 /*   By: tvan-der <tvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 15:32:54 by tvan-der      #+#    #+#                 */
-/*   Updated: 2022/04/14 16:27:25 by tvan-der      ########   odam.nl         */
+/*   Updated: 2022/05/09 15:19:58 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,32 @@
 
 // check input 
 
-int check_input(char *str);
-int check_if_sorted(node *list);
+int		check_input(int argc, char **argv);
+int		check_if_sorted(int size, int *arr);
+void	error_func(void);
 
 // list functions
 
-// node *create_node(int data);
-void insert_back(node **head, int data);
-node *create_list(int argc, char **argv);
-void print_list(node *list);
-int lstsize(node *list);
-int find_min_node(node *head);
-int find_max_node(node *head);
-
+int		find_min_node(t_node *head);
+int		find_max_node(t_node *head);
+int		find_index_min_node(t_node *head, int data);
+int		check_list_is_sorted(t_node *stack);
 
 // operations
 
-void sa(node **head);
-void pb(node **head_a, node **head_b);
-void ra(node **head);
-void rra(node **head);
+void	swap(t_node **head, char c);
+void	push(t_node **head_a, t_node **head_b, char c);
+void	rotate(t_node **head, char c);
+void	reverse_rotate(t_node **head, char c);
+void	rotate_stack(t_node **stack, char c);
+
+// pre sorting
+
+int		*pre_sort(int size, char **input);
 
 // sorting
 
-void sort_three(node **head);
-void sort_four(node **head);
-void sort_small_stack(node **head);
-
-// push_swap
-
-void push_swap(int argc, char **argv);
-
-
+void	sort_small_stack(t_node **head, int len);
+void	sort_big_stack(t_node **head, int len);
 
 #endif

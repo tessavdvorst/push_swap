@@ -6,7 +6,7 @@
 #    By: tvan-der <tvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/08 12:03:47 by tvan-der      #+#    #+#                  #
-#    Updated: 2022/04/14 15:29:46 by tvan-der      ########   odam.nl          #
+#    Updated: 2022/05/06 15:33:20 by tvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,12 +54,17 @@ SRCS	=	ft_strlcpy.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
 			ft_lstdelone.c \
+			ft_lstfree.c \
+			ft_lstprint.c \
 			ft_lstclear.c \
 			ft_create_node.c \
+			ft_create_list.c \
 			ft_lst_insert_back.c \
 			ft_printf.c \
 			ft_printf_char.c \
-			ft_printf_num.c
+			ft_printf_num.c \
+			get_next_line.c \
+			get_next_line_utils.c
 
 DIR_OBJ =	./obj
 OBJS	=	$(addprefix $(DIR_OBJ)/, $(SRCS:.c=.o))

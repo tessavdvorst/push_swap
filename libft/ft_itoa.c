@@ -6,7 +6,7 @@
 /*   By: Tessa <tvan-der@student.codam.nl>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/07 12:13:14 by Tessa         #+#    #+#                 */
-/*   Updated: 2021/09/23 14:06:52 by tvan-der      ########   odam.nl         */
+/*   Updated: 2022/05/03 12:09:57 by tvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ char	*itoa(int n, char *s)
 
 char	*ft_itoa(int n)
 {
-	char		*str;
-	int			len;
+	int		len;
+	char	*str;
 
 	len = len_int(n);
 	str = ft_calloc((len + 1), (sizeof(char)));
