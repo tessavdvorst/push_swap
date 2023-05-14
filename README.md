@@ -5,7 +5,6 @@
 * [Features](#features)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Contributors](#contributors)
 
 ## General Information
 Push Swap is a project that involves sorting a list of integers using only two stacks and a limited set of operations. The program accepts input from standard input and outputs a series of instructions that will sort the list with the minimal amount of operations. This project is written in C and includes an implementation of the radix sort algorithm.
@@ -18,17 +17,17 @@ Radix sort is a non-comparative sorting algorithm that sorts the integers by gro
 ### Sorting operations
 The available operations are:
 
-sa: swap the first two elements of stack A
-sb: swap the first two elements of stack B
-ss: swap the first two elements of both stacks
-pa: push the first element of stack B onto stack A
-pb: push the first element of stack A onto stack B
-ra: rotate stack A by one element (the first element becomes the last)
-rb: rotate stack B by one element (the first element becomes the last)
-rr: rotate both stacks by one element
-rra: reverse rotate stack A by one element (the last element becomes the first)
-rrb: reverse rotate stack B by one element (the last element becomes the first)
-rrr: reverse rotate both stacks by one element
+* sa: swap the first two elements of stack A
+* sb: swap the first two elements of stack B
+* ss: swap the first two elements of both stacks
+* pa: push the first element of stack B onto stack A
+* pb: push the first element of stack A onto stack B
+* ra: rotate stack A by one element (the first element becomes the last)
+* rb: rotate stack B by one element (the first element becomes the last)
+* rr: rotate both stacks by one element
+* rra: reverse rotate stack A by one element (the last element becomes the first)
+* rrb: reverse rotate stack B by one element (the last element becomes the first)
+* rrr: reverse rotate both stacks by one element
 
 ## Setup
 To use push_swap, you must first clone this repository.
@@ -46,4 +45,4 @@ Once you have compiled the program, you can run it by typing the following comma
 
 `$ ./push_swap [list of integers]`
 
-
+![](https://github.com/tessavdvorst/push_swap/blob/master/Schermopname_2023-05-14_om_17_09_56_AdobeExpress.gif)
