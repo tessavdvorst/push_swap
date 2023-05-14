@@ -32,17 +32,17 @@ The available operations are:
 ## Setup
 To use push_swap, you must first clone this repository.
 
-`$ git clone https://github.com/tessavdvorst/push_swap.git`
+`git clone https://github.com/tessavdvorst/push_swap.git`
 
 Once you have the source code, you can compile it using the provided Makefile.
 
-`$ make`
+`make`
 
 This will create an executable file called push_swap in the same directory.
 
 ## Usage
 Once you have compiled the program, you can run it by typing the following command:
 
-`$ ./push_swap [list of integers]`
+`./push_swap [list of integers]`
 
 ![](https://github.com/tessavdvorst/push_swap/blob/master/Schermopname_2023-05-14_om_17_09_56_AdobeExpress.gif)
